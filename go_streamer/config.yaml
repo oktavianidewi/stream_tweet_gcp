@@ -1,0 +1,9 @@
+twitter: 
+  clientKey: 'ugWWgnOJh7TjAWbuWXi47OtIc'
+  secretKey: 'oFqtTeq4NKgNwZvTyIYnkJ4OIZcBoUlkKehnFcZx3gt0G6ZcyP'
+  accessToken: '110312853-3Cb9b7QlHiBhf2fD54CvPglMHmSPQgMpl2hmRB2F'
+  tokenSecret: '1thJ6muRSYzMiWns2ecgwnKW8iNQYISMWL81vf0KhzTAo'
+gcp:
+  projectId: 'protean-impact-355121'
+  topicName: 'users'
+  subscriptionName: 'users.subscription-5700493789423610054'

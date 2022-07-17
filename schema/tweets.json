@@ -1,0 +1,154 @@
+{
+  "schema": {
+    "fields": [
+      {
+        "name": "coordinates",
+        "type": "Coordinates"
+      },
+      {
+        "name": "created_at",
+        "type": "string"
+      },
+      {
+        "name": "current_user_retweet",
+        "type": "TweetIdentifier"
+      },
+      {
+        "name": "entities",
+        "type": "Entities"
+      },
+      {
+        "name": "favorite_count",
+        "type": "int"
+      },
+      {
+        "name": "favorited",
+        "type": "bool"
+      },
+      {
+        "name": "filter_level",
+        "type": "string"
+      },
+      {
+        "name": "id",
+        "type": "integer"
+      },
+      {
+        "name": "id_str",
+        "type": "string"
+      },
+      {
+        "name": "in_reply_to_screen_name",
+        "type": "string"
+      },
+      {
+        "name": "in_reply_to_status_id",
+        "type": "integer"
+      },
+      {
+        "name": "in_reply_to_status_id_str",
+        "type": "string"
+      },
+      {
+        "name": "in_reply_to_user_id",
+        "type": "integer"
+      },
+      {
+        "name": "in_reply_to_user_id_str",
+        "type": "string"
+      },
+      {
+        "name": "lang",
+        "type": "string"
+      },
+      {
+        "name": "possibly_sensitive",
+        "type": "bool"
+      },
+      {
+        "name": "quote_count",
+        "type": "int"
+      },
+      {
+        "name": "reply_count",
+        "type": "int"
+      },
+      {
+        "name": "retweet_count",
+        "type": "int"
+      },
+      {
+        "name": "retweeted",
+        "type": "bool"
+      },
+      {
+        "name": "retweeted_status",
+        "type": "Tweet"
+      },
+      {
+        "name": "source",
+        "type": "string"
+      },
+      {
+        "name": "scopes",
+        "type": "{},"
+      },
+      {
+        "name": "text",
+        "type": "string"
+      },
+      {
+        "name": "full_text",
+        "type": "string"
+      },
+      {
+        "name": "display_text_range",
+        "type": "Indices"
+      },
+      {
+        "name": "place",
+        "type": "Place"
+      },
+      {
+        "name": "truncated",
+        "type": "bool"
+      },
+      {
+        "name": "user",
+        "type": "User"
+      },
+      {
+        "name": "withheld_copyright",
+        "type": "bool"
+      },
+      {
+        "name": "withheld_in_countries",
+        "type": "string"
+      },
+      {
+        "name": "withheld_scope",
+        "type": "string"
+      },
+      {
+        "name": "extended_entities",
+        "type": "ExtendedEntity"
+      },
+      {
+        "name": "extended_tweet",
+        "type": "ExtendedTweet"
+      },
+      {
+        "name": "quoted_status_id",
+        "type": "integer"
+      },
+      {
+        "name": "quoted_status_id_str",
+        "type": "string"
+      },
+      {
+        "name": "quoted_status",
+        "type": "Tweet"
+      }
+    ]
+  }
+}
