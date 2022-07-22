@@ -27,28 +27,20 @@ func NewPublisher(gConfig gcpConfig) *PublishManager {
 	}
 }
 
-func (p *PublishManager) Write(messages string) {
-
-	// messages := `{"id": 2, "title": "Pipeline article", "author": "Dragonball"}`
-	// var msg map[string]interface{}
-	// json.Unmarshal([]byte(messages), &msg)
+func (p *PublishManager) Write(messages []byte) {
 
 	topic := p.client.Topic(p.config.TopicName)
-	// fmt.Printf("Msg example : %v\n", msg)
+	result := topic.Publish(p.ctx, &pubsub.Message{
+		Data: messages,
+	})
 
-	for i := 0; i <= 100; i++ {
-		result := topic.Publish(p.ctx, &pubsub.Message{
-			Data: []byte(messages),
-		})
-
-		// Block until the result is returned and a server-generated
-		// ID is returned for the published message.
-		id, err := result.Get(p.ctx)
-		if err != nil {
-			log.Fatalf("pubsub: result.Get: %v", err)
-		}
-		fmt.Printf("Published a message; msg ID: %v\n", id)
+	// Block until the result is returned and a server-generated
+	// ID is returned for the published message.
+	id, err := result.Get(p.ctx)
+	if err != nil {
+		log.Fatalf("pubsub: result.Get: %v", err)
 	}
-	defer p.client.Close()
+	fmt.Printf("Published a message; msg ID: %v\n", id)
+	// defer p.client.Close()
 	return
 }

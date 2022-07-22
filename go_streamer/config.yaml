@@ -5,5 +5,6 @@ twitter:
   tokenSecret: '1thJ6muRSYzMiWns2ecgwnKW8iNQYISMWL81vf0KhzTAo'
 gcp:
   projectId: 'protean-impact-355121'
-  topicName: 'users'
-  subscriptionName: 'users.subscription-5700493789423610054'
+  topicName: 'tweet-data'
+  datasetName: 'users_data'
+  tableName: 'tweets'

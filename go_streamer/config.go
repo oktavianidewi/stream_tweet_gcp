@@ -19,6 +19,8 @@ type gcpConfig struct {
 	ProjectId        string `yaml:"projectId"`
 	TopicName        string `yaml:"topicName"`
 	SubscriptionName string `yaml:"subscriptionName"`
+	DatasetName      string `yaml:"datasetName"`
+	TableName        string `yaml:"tableName"`
 }
 
 type Config struct {
