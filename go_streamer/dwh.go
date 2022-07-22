@@ -9,12 +9,8 @@ import (
 	"cloud.google.com/go/bigquery"
 )
 
-// printTableInfo demonstrates fetching metadata from a table and printing some basic information
-// to an io.Writer.
+// printTableInfo demonstrates fetching metadata from a table and printing some basic information to an io.Writer.
 func PrintTableInfo(w io.Writer, projectID, datasetID, tableID string) error {
-	// projectID = "protean-impact-355121"
-	// datasetID = "users_data"
-	// tableID = "users_table"
 	ctx := context.Background()
 	client, err := bigquery.NewClient(ctx, projectID)
 	if err != nil {
