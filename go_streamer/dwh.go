@@ -42,66 +42,32 @@ func CreateTableExplicitSchema(projectID, datasetID, tableID string) error {
 		return fmt.Errorf("bigquery.NewClient: %v", err)
 	}
 
-	sampleSchema := bigquery.Schema{
-		{
-			Name: "created_at",
-			Type: bigquery.StringFieldType,
+	tweetSchema := bigquery.Schema{
+		{Name: "created_at", Type: bigquery.StringFieldType},
+		{Name: "id", Type: bigquery.IntegerFieldType},
+		{Name: "possibly_sensitive", Type: bigquery.BooleanFieldType},
+		{Name: "quote_count", Type: bigquery.IntegerFieldType},
+		{Name: "reply_count", Type: bigquery.IntegerFieldType},
+		{Name: "retweet_count", Type: bigquery.IntegerFieldType},
+		{Name: "retweeted", Type: bigquery.BooleanFieldType},
+		{Name: "source", Type: bigquery.StringFieldType},
+		{Name: "text", Type: bigquery.StringFieldType},
+		{Name: "lang", Type: bigquery.StringFieldType},
+		{Name: "user", Type: bigquery.RecordFieldType, Repeated: false, Schema: bigquery.Schema{
+			{Name: "created_at", Type: bigquery.StringFieldType},
+			{Name: "followers_count", Type: bigquery.IntegerFieldType},
+			{Name: "friends_count", Type: bigquery.IntegerFieldType},
+			{Name: "id", Type: bigquery.IntegerFieldType},
+			{Name: "location", Type: bigquery.StringFieldType},
+			{Name: "name", Type: bigquery.StringFieldType},
+			{Name: "protected", Type: bigquery.BooleanFieldType},
+			{Name: "screen_name", Type: bigquery.StringFieldType},
 		},
-		{
-			Name: "id",
-			Type: bigquery.IntegerFieldType,
-		},
-		{
-			Name: "possibly_sensitive",
-			Type: bigquery.BooleanFieldType,
-		},
-		{
-			Name: "quote_count",
-			Type: bigquery.IntegerFieldType,
-		},
-		{
-			Name: "reply_count",
-			Type: bigquery.IntegerFieldType,
-		},
-		{
-			Name: "retweet_count",
-			Type: bigquery.IntegerFieldType,
-		},
-		{
-			Name: "retweeted",
-			Type: bigquery.BooleanFieldType,
-		},
-		{
-			Name: "source",
-			Type: bigquery.StringFieldType,
-		},
-		{
-			Name: "text",
-			Type: bigquery.StringFieldType,
-		},
-		{
-			Name: "lang",
-			Type: bigquery.StringFieldType,
-		},
-		{
-			Name:     "user",
-			Type:     bigquery.RecordFieldType,
-			Repeated: false,
-			Schema: bigquery.Schema{
-				{Name: "created_at", Type: bigquery.StringFieldType},
-				{Name: "followers_count", Type: bigquery.IntegerFieldType},
-				{Name: "friends_count", Type: bigquery.IntegerFieldType},
-				{Name: "id", Type: bigquery.IntegerFieldType},
-				{Name: "location", Type: bigquery.StringFieldType},
-				{Name: "name", Type: bigquery.StringFieldType},
-				{Name: "protected", Type: bigquery.BooleanFieldType},
-				{Name: "screen_name", Type: bigquery.StringFieldType},
-			},
 		},
 	}
 
 	metaData := &bigquery.TableMetadata{
-		Schema:         sampleSchema,
+		Schema:         tweetSchema,
 		ExpirationTime: time.Now().AddDate(1, 0, 0), // Table will be automatically deleted in 1 year.
 	}
 	tableRef := client.Dataset(datasetID).Table(tableID)
