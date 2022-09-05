@@ -14,6 +14,7 @@ type PublishManager struct {
 	config gcpConfig
 }
 
+// NewPublisher func to publish message to kafka
 func NewPublisher(gConfig gcpConfig) *PublishManager {
 	ctx := context.Background()
 	pubsubClient, err := pubsub.NewClient(ctx, gConfig.ProjectId)
