@@ -29,6 +29,7 @@ type Config struct {
 }
 
 func load() *Config {
+	// config path comment
 	configPath := "config.yaml"
 	configFile, err := ioutil.ReadFile(configPath)
 	if err != nil {
